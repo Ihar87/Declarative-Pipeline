@@ -1,0 +1,34 @@
+This directory for storing jenkins groovy pipelines scripts. It should be updated from https://git.epam.com/dip-roles/hybris-scaffolding
+For tests codequality.extensions and testclasses.extensions should be used in local.properties.
+
+ - modules\ - contains groovy modules
+ - ci_allwebtests_test.groovy: ant allwebtests test
+ - ci_codequality_test.groovy: ant codequality test
+ - ci_incremental_update_test.groovy: incremental update test
+ - ci_initialization_from_artifact_test.groovy: test to make DB init using artifact
+ - ci_initialization_test.groovy: ant initialize test
+ - ci_integrational_test.groovy: ant yunitinit with log parsing and ant integrationtests test
+ - ci_junit_test.groovy: ant unittests test
+ - ci_main_branch.groovy: branch testing for every commit to main branches
+ - ci_manual_test.groovy: hybris spock test
+ - ci_syntax_check_test.groovy: check pipelines syntax test
+ - ci_sonar_test.groovy: sonar tests with preview mode (for pull/merge request tests)
+ - ci_sonar_branch_test.groovy: sonar test for branch (for branch per commit test)
+ - create_artifacts.groovy: artifacts creation pipeline
+ - create_db_dump.groovy: DB dump creation
+ - create_release_notes.groovy: create custom release notes
+ - create_solr_dump.groovy: create solr collection/collections dump (from solr cloud)
+ - deploy_initial_to_multiple_node.groovy: deployment with DB initialize to multiple nodes env script
+ - deploy_to_fv.groovy: deployment with initial/update to single node env (FV) pipeline
+ - deploy_update_multiple_node_with_db_export.groovy: deployment with DB update and export to multiple nodes env script (Rolling update)
+ - deploy_update_multiple_node_with_db_import.groovy: deployment with DB import and update to multiple nodes env script
+ - deploy_update_to_multiple_node.groovy: deployment with DB update to multiple nodes env script (Rolling update)
+ - dev_import_dump.groovy: import DB dump to test DB env for developers
+ - mr_main_copy_in_the_job.groovy: pipeline to use in main job for Merge Request tesing for GitLab only (on configuration page of a job)
+ - mr_test.groovy: pipeline for test Merge request (add/remove tests)
+ - nodes_management.groovy: stop/restart hybris nodes
+ - properties_configuration.groovy: correct hybris properties and restart nodes (optionally)
+ - restore_solr_dump.groovy: restore solr dump to any type of solr
+ - solr_update.groovy: update solr with new schema and config files
+ - update_apache_config.groovy: update apache config file
+ - upload_static_content.groovy: upload static content to web servers
