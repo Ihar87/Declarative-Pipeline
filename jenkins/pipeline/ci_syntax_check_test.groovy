@@ -28,6 +28,9 @@ pipeline {
       label 'master'
     }
   }
+  environment {
+    failedList = []
+  }
   stages {
     stage ("Git"){
       options {
@@ -49,7 +52,6 @@ pipeline {
         script {
           grFiles = findFiles glob: 'ci/jenkins/pipeline/**/*.groovy'
           sh (script: """wget -O jenkins-cli.jar ${env.JENKINS_URL}jnlpJars/jenkins-cli.jar"""
-          failedList = []
           withCredentials([usernamePassword(credentialsId: "Jenkins_http_connection", passwordVariable: 'TOKEN', usernameVariable: 'USERNAME')]) {
             for (grFile in grFiles){
                 echo "\n\nChecking ${grFile.name}..."
