@@ -51,7 +51,7 @@ pipeline {
       steps {
         script {
           grFiles = findFiles glob: 'ci/jenkins/pipeline/**/*.groovy'
-          sh (script: """wget -O jenkins-cli.jar ${env.JENKINS_URL}jnlpJars/jenkins-cli.jar"""
+          sh (script: """wget -O jenkins-cli.jar ${env.JENKINS_URL}jnlpJars/jenkins-cli.jar""" {
             for (grFile in grFiles){
                 echo "\n\nChecking ${grFile.name}..."
                 sh (script: """java -jar jenkins-cli.jar -http -auth ${USERNAME}:${TOKEN} -s ${env.JENKINS_URL} declarative-linter < ${WORKSPACE}/${grFile.path}"""
@@ -68,4 +68,5 @@ pipeline {
         cleanWs()
      }
   }
+}
 }
